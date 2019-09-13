@@ -6,6 +6,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -116,6 +118,7 @@ module.exports = {
           "**/taxonomies",
           "**/users",
           "**/*/*/menus",
+          "**/*/*/portfolio",
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: [],
