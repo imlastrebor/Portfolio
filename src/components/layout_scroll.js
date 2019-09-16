@@ -16,7 +16,7 @@ body, html{
   font-family: 'Roboto Mono', monospace;
   margin: 0 !important;
   padding: 0 !important;
-  overflow:hidden;
+  /* overflow:hidden; */
   height:100%;
 }
 `

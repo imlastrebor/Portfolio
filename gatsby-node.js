@@ -92,7 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
                     id
                     localFile {
                       childImageSharp {
-                        fixed(width: 300, height: 300) {
+                        fixed(width: 400, height: 400) {
                           src
                         }
                       }
@@ -117,7 +117,7 @@ exports.createPages = ({ graphql, actions }) => {
                         portfolio_item_image {
                           localFile {
                             childImageSharp {
-                              fixed(width: 300, height: 300) {
+                              fixed(width: 400, height: 400) {
                                 src
                               }
                             }
@@ -131,7 +131,7 @@ exports.createPages = ({ graphql, actions }) => {
                         caption
                         localFile {
                           childImageSharp {
-                            fixed(width: 300, height: 300) {
+                            fixed(width: 400, height: 400) {
                               src
                             }
                           }

@@ -5,6 +5,9 @@ import SiteInfo from "./SiteInfo"
 
 const MainMenuWrapper = styled.div`
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: lightgreen;
 `
 
