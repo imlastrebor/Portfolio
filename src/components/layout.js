@@ -16,15 +16,11 @@ body, html{
   font-family: 'Roboto Mono', monospace;
   margin: 0 !important;
   padding: 0 !important;
-  overflow:hidden;
-  height:100%;
 }
 `
 const LayoutWrapper = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  padding-top: 100px;
-  height: 100%;
 `
 
 const Layout = ({ children }) => (

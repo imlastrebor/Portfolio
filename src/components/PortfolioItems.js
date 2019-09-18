@@ -3,9 +3,7 @@ import { graphql, StaticQuery, Link } from "gatsby"
 import styled from "styled-components"
 
 const PortfolioItemsWrapper = styled.div`
-  height: 100%;
   display: flex;
-  text-align: center;
   justify-content: center;
 `
 const PortfolioImage = styled.img`
@@ -13,26 +11,12 @@ const PortfolioImage = styled.img`
   opacity: 0.5;
 `
 const PortfolioItem = styled.div`
-  height: 100%;
   width: 300px;
   border: 1px solid #efefef;
   padding: 16px;
   margin: 16px;
   &:hover ${PortfolioImage} {
     opacity: 1 !important;
-  }
-`
-
-const PortfolioItemName = styled(Link)`
-  margin-top: -50%;
-  text-decoration: none;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: red;
-  &:hover {
-    color: red;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
   }
 `
 
@@ -61,17 +45,17 @@ const PortfolioItems = () => {
         <PortfolioItemsWrapper>
           {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
             <PortfolioItem key={portfolioItem.node.id}>
+              <h2>{portfolioItem.node.title}</h2>
               <PortfolioImage
                 src={portfolioItem.node.featured_media.source_url}
                 alt="Thumbnail"
               />
-              <PortfolioItemName to={`/portfolio/${portfolioItem.node.slug}`}>
-                {/* <Link to={`/portfolio/${portfolioItem.node.slug}`}>
-                  <h2>{portfolioItem.node.title}</h2>
-                </Link> */}
-
-                <h2>{portfolioItem.node.title}</h2>
-              </PortfolioItemName>
+              <div
+                dangerouslySetInnerHTML={{ __html: portfolioItem.node.excerpt }}
+              />
+              <Link to={`/portfolio/${portfolioItem.node.slug}`}>
+                Read more
+              </Link>
             </PortfolioItem>
           ))}
         </PortfolioItemsWrapper>

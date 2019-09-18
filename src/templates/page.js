@@ -1,16 +1,11 @@
 import React from "react"
-import Layout from "../components/layout_scroll"
+import Layout from "../components/layout"
 import PortfolioItems from "../components/PortfolioItems"
-import DemoCarousel from "../components/DemoCarousel"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import PortfolioItemsText from "../components/PortfolioItemsText"
 
 export default ({ pageContext }) => (
   <Layout>
-    {/* <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
-    <div dangerouslySetInnerHTML={{ __html: pageContext.content }} /> */}
-    {/* <PortfolioItems /> */}
-    <PortfolioItemsText />
-    {/* <DemoCarousel /> */}
+    <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+    <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
+    <PortfolioItems />
   </Layout>
 )
