@@ -18,8 +18,10 @@ body, html{
   margin: 0 !important;
   padding: 0 !important;
   height:100%;
-  overflow:auto;
   overflow:hidden !important;
+}
+body{
+  background-color:#000;
 }
 
 `

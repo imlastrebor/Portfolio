@@ -12,17 +12,17 @@ const PortfolioItemsWrapper = styled.div`
   scroll-snap-type: y mandatory;
 `
 const PortfolioItems = styled.div`
-  padding: 100px 0px;
+  padding: 200px 0px;
   margin: 50px 0px;
   padding-bottom: 200px;
 `
 
 const PortfolioItem = styled.div`
   height: 100%;
-  width: 50%;
+  /* max-width: 90%;
   padding: 50px;
   margin: 10px auto;
-  position: relative;
+  position: relative; */
   scroll-snap-align: center;
 `
 
@@ -31,12 +31,10 @@ const PortfolioItemNameLink = styled(Link)`
   text-decoration: none;
   color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: red;
+  -webkit-text-stroke-color: #fff;
   transition: 0.25s linear;
   &:hover {
-    color: red;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
+    color: #fff;
   }
   ${PortfolioItem}:hover & {
     opacity: 1;
@@ -44,23 +42,22 @@ const PortfolioItemNameLink = styled(Link)`
 `
 const PortfolioItemNameLinkText = styled.h2`
   display: inline-block;
-  font-size: 5em;
+  font-size: 4em;
 `
 
 const PortfolioImage = styled.img`
-  max-width: 100%;
+  max-height: 50%;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  width: 60%;
   z-index: -5;
 
   opacity: 0;
   transition: 0.5s linear;
   ${PortfolioItemNameLink}:hover & {
-    opacity: 1;
+    opacity: 0.7;
   }
 `
 
