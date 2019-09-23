@@ -3,19 +3,33 @@ import { graphql, StaticQuery, Link } from "gatsby"
 import styled from "styled-components"
 
 const PortfolioItemsWrapper = styled.div`
+  width: 100%;
   margin: auto;
-  max-height: 100vh;
+  margin-top: 100px;
+  max-height: 80vh;
   overflow-y: scroll;
   display: block;
   text-align: center;
   justify-content: center;
-  scroll-snap-type: y mandatory;
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(220, 220, 220, 0.1);
+    border-radius: 10px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(220, 220, 220, 0.2);
+    background-color: transparent;
+  }
 `
-const PortfolioItems = styled.div`
-  padding: 200px 0px;
-  margin: 50px 0px;
-  padding-bottom: 200px;
-`
+const PortfolioItems = styled.div``
 
 const PortfolioItem = styled.div`
   height: 100%;
@@ -23,7 +37,6 @@ const PortfolioItem = styled.div`
   padding: 50px;
   margin: 10px auto;
   position: relative; */
-  scroll-snap-align: center;
 `
 
 const PortfolioItemNameLink = styled(Link)`
@@ -42,20 +55,20 @@ const PortfolioItemNameLink = styled(Link)`
 `
 const PortfolioItemNameLinkText = styled.h2`
   display: inline-block;
+  margin: 40px;
   font-size: 4em;
 `
 
 const PortfolioImage = styled.img`
-  max-height: 50%;
+  max-width: 300px;
+
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
   z-index: -5;
-
   opacity: 0;
-  transition: 0.5s linear;
+  transition: 0.4s linear;
   ${PortfolioItemNameLink}:hover & {
     opacity: 0.7;
   }
@@ -81,7 +94,7 @@ const PortfolioItemsText = () => {
     e.preventDefault()
     console.log("X" + e.pageX)
     console.log("Y" + e.pageY)
-    setCurrentTop({ left: e.pageX - 500, top: e.pageY + -300 })
+    setCurrentTop({ left: e.clientX, top: e.clientY })
   }
   return (
     <StaticQuery
@@ -104,8 +117,8 @@ const PortfolioItemsText = () => {
         }
       `}
       render={props => (
-        // <PortfolioItemsWrapper onMouseMove={mouseMovement}>
         <PortfolioItemsWrapper>
+          {/* <PortfolioItemsWrapper> */}
           <PortfolioItems>
             {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
               <PortfolioItem
@@ -115,11 +128,14 @@ const PortfolioItemsText = () => {
                 onMouseOut={handleLeave}
               >
                 <PortfolioItemNameLink
+                  onMouseEnter={mouseMovement}
+                  onMouseLeave={mouseMovement}
                   to={`/portfolio/${portfolioItem.node.slug}`}
                 >
                   {/* <Link to={`/portfolio/${portfolioItem.node.slug}`}>
                   <h2>{portfolioItem.node.title}</h2>
                 </Link> */}
+
                   <PortfolioImage
                     style={currentTop}
                     src={portfolioItem.node.featured_media.source_url}

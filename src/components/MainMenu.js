@@ -9,7 +9,11 @@ const MainMenuWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: lightgreen;
+  background-color: #000;
+  padding: 10px 0;
+  /* -webkit-box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8); */
 `
 
 const MenuItem = styled(Link)`

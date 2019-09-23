@@ -29,56 +29,16 @@ const GalleryImg = styled.img`
 `
 export default ({ pageContext, data }) => (
   <Layout>
+    {console.log("------------------")}
+    {console.log(pageContext)}
+    {console.log("------------------")}
+
     <PortfolioWrapper>
       <h1>{pageContext.title}</h1>
       <FeaturedImage src={pageContext.featured_media.source_url} />
       <PortfolioText
         dangerouslySetInnerHTML={{ __html: pageContext.content }}
       />
-
-      {console.log("------------------")}
-      {console.log("------------------")}
-      {console.log(
-        pageContext.acf.portfolio_gallery.map(
-          galleryItem => galleryItem.localFile.childImageSharp.fixed.src
-        )
-      )}
-      {console.log("------------------")}
-      {console.log(
-        data.allWordpressWpPortfolio.edges.map(edge => edge.node.title)
-      )}
-      {console.log("------------------")}
-      {console.log(
-        data.wordpressWpPortfolio.acf.portfolio_gallery.map(
-          galleryItem => galleryItem.localFile.childImageSharp.fixed
-        )
-      )}
-      {console.log("------------------")}
-      {console.log("------------------")}
-
-      {/* {pageContext.acf.portfolio_gallery.map(galleryItem => (
-      <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
-    ))} */}
-
-      {/* {pageContext.acf.portfolio_gallery.map(galleryItem => (
-      <div>
-        <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
-      </div>
-    ))} */}
-
-      {/* {data.allWordpressWpPortfolio.edges.map(edge =>
-      edge.node.acf.portfolio_gallery.map(galleryItem => (
-        <div key={galleryItem.id}>
-          <Img fixed={galleryItem.localFile.childImageSharp.fixed} />
-        </div>
-      ))
-    )} */}
-      {/* 
-    {data.wordpressWpPortfolio.acf.portfolio_gallery.map(galleryItem => (
-      <div key={galleryItem.id}>
-        <Img fixed={galleryItem.localFile.childImageSharp.fixed} />
-      </div>
-    ))} */}
 
       {pageContext.acf.portfolio_gallery.map(galleryItem => (
         <div key={galleryItem.id}>
@@ -138,7 +98,6 @@ export const portfolioQuery = graphql`
                 }
               }
             }
-
             portfolio_gallery {
               title
               id

@@ -55,11 +55,11 @@ exports.createPages = ({ graphql, actions }) => {
         const portfolioUnderContentTemplate = path.resolve(
           "./src/templates/portfolioUnderContentTemplate.js"
         )
-
+        const portfolio = result.data.allWordpressPage.edges
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
-        _.each(result.data.allWordpressPage.edges, edge => {
+        _.each(result.data.allWordpressPage.edges, (edge, index) => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
           // to interact with Gatsby.
@@ -76,6 +76,11 @@ exports.createPages = ({ graphql, actions }) => {
                 : pageTemplate
             ),
             context: edge.node,
+            // prev: index === 0 ? null : portfolio[index - 1].node,
+            // next:
+            //   index === portfolio.length - 1
+            //     ? null
+            //     : portfolio[index + 1].node,
           })
         })
       })
@@ -166,6 +171,15 @@ exports.createPages = ({ graphql, actions }) => {
           //   }
 
           const portfolioTemplate = path.resolve("./src/templates/portfolio.js")
+
+          // createPaginatedPages({
+          //   edges: result.data.allWordpressWpPortfolio.edges,
+          //   createPage: createPage,
+          //   pageTemplate: './src/templates/portfolios.js',
+          //   pageLength: 3,
+          //   pathPrefix: 'portfolio'
+          // })
+
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
