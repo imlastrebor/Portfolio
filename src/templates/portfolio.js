@@ -5,14 +5,20 @@ import { graphql } from "gatsby"
 
 const PortfolioWrapper = styled.div`
   max-width: 90%;
-  max-height: 100vh;
+  max-height: 90vh;
   margin: auto;
-  margin-top: -100px;
+  margin-top: -20px;
   overflow-y: scroll;
+`
+const PortfolioInner = styled.div`
+  margin: auto;
+  padding-bottom: 50px;
 `
 const FeaturedImage = styled.img`
   max-width: 300px;
   margin: 16px 0;
+  margin: auto;
+  display: block;
 `
 const PortfolioText = styled.div`
   color: #fff;
@@ -20,12 +26,16 @@ const PortfolioText = styled.div`
 
 const GalleryTitle = styled.div`
   color: #fff;
+  text-align: center;
 `
 const GalleryCaption = styled.div`
   color: #fff;
+  text-align: center;
 `
 const GalleryImg = styled.img`
   max-width: 90%;
+  margin: auto;
+  display: block;
 `
 export default ({ pageContext, data }) => (
   <Layout>
@@ -34,26 +44,28 @@ export default ({ pageContext, data }) => (
     {console.log("------------------")}
 
     <PortfolioWrapper>
-      <h1>{pageContext.title}</h1>
-      <FeaturedImage src={pageContext.featured_media.source_url} />
-      <PortfolioText
-        dangerouslySetInnerHTML={{ __html: pageContext.content }}
-      />
+      <PortfolioInner>
+        <h1>{pageContext.title}</h1>
+        <FeaturedImage src={pageContext.featured_media.source_url} />
+        <PortfolioText
+          dangerouslySetInnerHTML={{ __html: pageContext.content }}
+        />
 
-      {pageContext.acf.portfolio_gallery.map(galleryItem => (
-        <div key={galleryItem.id}>
-          <GalleryTitle
-            dangerouslySetInnerHTML={{ __html: galleryItem.title }}
-          />
-          <GalleryImg
-            src={galleryItem.localFile.childImageSharp.fixed.src}
-            alt={galleryItem.caption}
-          />
-          <GalleryCaption
-            dangerouslySetInnerHTML={{ __html: galleryItem.caption }}
-          />
-        </div>
-      ))}
+        {pageContext.acf.portfolio_gallery.map(galleryItem => (
+          <div key={galleryItem.id}>
+            <GalleryTitle
+              dangerouslySetInnerHTML={{ __html: galleryItem.title }}
+            />
+            <GalleryImg
+              src={galleryItem.localFile.childImageSharp.fixed.src}
+              alt={galleryItem.caption}
+            />
+            <GalleryCaption
+              dangerouslySetInnerHTML={{ __html: galleryItem.caption }}
+            />
+          </div>
+        ))}
+      </PortfolioInner>
     </PortfolioWrapper>
   </Layout>
 )

@@ -9,8 +9,9 @@ const MainMenuWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 0;
+
   /* -webkit-box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8);
   box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8); */
@@ -26,7 +27,7 @@ const MainMenuInner = styled.div`
   max-width: 960px;
   margin: 0 auto;
   display: flex;
-  width: 960px;
+  width: 90%;
   height: 100%;
 `
 

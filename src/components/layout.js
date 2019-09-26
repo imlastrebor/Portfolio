@@ -47,7 +47,7 @@ body{
     top: -100%;
     width: 300%;
     z-index: -2;
-}
+  }
 }
 
 `

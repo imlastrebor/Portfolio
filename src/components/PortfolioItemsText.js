@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql, StaticQuery, Link } from "gatsby"
 import styled from "styled-components"
+import { TweenMax, Power2, TimelineLite } from "gsap/TweenMax"
 
 const PortfolioItemsWrapper = styled.div`
   width: 100%;
@@ -33,6 +34,7 @@ const PortfolioItems = styled.div``
 
 const PortfolioItem = styled.div`
   height: 100%;
+  margin: 40px;
   /* max-width: 90%;
   padding: 50px;
   margin: 10px auto;
@@ -40,6 +42,7 @@ const PortfolioItem = styled.div`
 `
 
 const PortfolioItemNameLink = styled(Link)`
+  display: inline-block;
   z-index: -2;
   text-decoration: none;
   color: transparent;
@@ -55,12 +58,21 @@ const PortfolioItemNameLink = styled(Link)`
 `
 const PortfolioItemNameLinkText = styled.h2`
   display: inline-block;
-  margin: 40px;
+  margin: 0;
   font-size: 4em;
+`
+const Svg = styled.svg`
+  position: absolute;
+  left: 0;
+  right: 0;
 `
 
 const PortfolioImage = styled.img`
   max-width: 300px;
+  /* --------- */
+  /* Image distort filter */
+  /* filter: url(#noise); */
+  /* --------- */
 
   position: absolute;
   left: 50%;
@@ -120,6 +132,21 @@ const PortfolioItemsText = () => {
         <PortfolioItemsWrapper>
           {/* <PortfolioItemsWrapper> */}
           <PortfolioItems>
+            {/* -------- */}
+            {/* Image distort filter */}
+            {/* -------- */}
+            {/* <Svg>
+                <filter id="noise">
+                  <feTurbulence
+                    baseFrequency="0.02 0.03"
+                    result="NOISE"
+                    numOctaves="1"
+                    id="turbulence"
+                  />
+                  <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20" />
+                </filter>
+              </Svg> */}
+            {/* -------- */}
             {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
               <PortfolioItem
                 style={currentStyle}
@@ -135,7 +162,6 @@ const PortfolioItemsText = () => {
                   {/* <Link to={`/portfolio/${portfolioItem.node.slug}`}>
                   <h2>{portfolioItem.node.title}</h2>
                 </Link> */}
-
                   <PortfolioImage
                     style={currentTop}
                     src={portfolioItem.node.featured_media.source_url}
