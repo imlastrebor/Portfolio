@@ -14,6 +14,8 @@ const PortfolioCarousel = styled(Carousel)`
 `
 
 const PortfolioItemName = styled(Link)`
+  position: fixed;
+  bottom: 0;
   text-decoration: none;
   color: transparent;
   -webkit-text-stroke-width: 1px;

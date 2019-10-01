@@ -10,17 +10,21 @@ import MainMenu from "./MainMenu"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle, keyframes } from "styled-components"
 
+// bg animation
+// const movement = keyframes`
+//   0%, 100% { transform:translate(0, 0) }
+//   10% { transform:translate(-5%, -10%) }
+//   20% { transform:translate(-15%, 5%) }
+//   30% { transform:translate(7%, -25%) }
+//   40% { transform:translate(-5%, 25%) }
+//   50% { transform:translate(-15%, 10%) }
+//   60% { transform:translate(15%, 0%) }
+//   70% { transform:translate(0%, 15%) }
+//   80% { transform:translate(3%, 35%) }
+//   90% { transform:translate(-10%, 10%) }
+// `
 const movement = keyframes`
   0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
 `
 
 const GlobalStyles = createGlobalStyle`
@@ -35,14 +39,14 @@ body, html{
   
 }
 body{
-  background-color:#000;
+  background-color:#181818;
   &::after {
     animation: ${movement}  8s steps(10) infinite;
     background: url(${props => props.imgUrl});
     content: "";
     height: 300%;
     left: -50%;
-    opacity: .08;
+    opacity: .1;
     position: fixed;
     top: -100%;
     width: 300%;

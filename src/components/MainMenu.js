@@ -9,7 +9,9 @@ const MainMenuWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: transparent;
+
   padding: 10px 0;
 
   /* -webkit-box-shadow: 0px 18px 15px -5px rgba(0, 0, 0, 0.8);

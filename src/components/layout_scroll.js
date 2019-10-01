@@ -32,7 +32,7 @@ body, html{
   height:100%;
 }
 body{
-  background-color:#000;
+  background-color:#181818;
   &::after {
     animation: ${movement}  8s steps(10) infinite;
     background: url(${props => props.imgUrl});

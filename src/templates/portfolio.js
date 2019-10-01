@@ -33,7 +33,7 @@ const GalleryCaption = styled.div`
   text-align: center;
 `
 const GalleryImg = styled.img`
-  max-width: 90%;
+  max-width: 300px;
   margin: auto;
   display: block;
 `
@@ -103,8 +103,8 @@ export const portfolioQuery = graphql`
               portfolio_item_image {
                 localFile {
                   childImageSharp {
-                    fixed(width: 300, height: 300) {
-                      ...GatsbyImageSharpFixed
+                    fluid(maxWidth: 300) {
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -115,8 +115,8 @@ export const portfolioQuery = graphql`
               id
               localFile {
                 childImageSharp {
-                  fixed(width: 300, height: 300) {
-                    ...GatsbyImageSharpFixed
+                  fluid(maxWidth: 300) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
