@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, StaticQuery, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -37,8 +37,16 @@ const PortfolioItemsWrapper = styled.div`
     box-shadow: inset 0 0 6px rgba(220, 220, 220, 0.2);
     background-color: transparent;
   }
+
+  @media only screen and (max-width: 1024px) {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: normal;
+    position: static;
+    max-height: 80vh;
+    max-width: 400px;
+  }
 `
-const PortfolioItems = styled.div``
 
 const PortfolioItem = styled.div`
   height: 100%;
@@ -61,6 +69,27 @@ const PortfolioItemNameLink = styled(Link)`
   &:hover {
     color: #fff;
   }
+  &:after {
+    content: "";
+
+    background-image: ${props => `url(${props.itemimage}) `};
+    background-size: 100%;
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.25s linear;
+    z-index: -1;
+    visibility: hidden;
+  }
+  &:hover&:after {
+    opacity: 0.7;
+    visibility: visible;
+    background-image: ${props => `url(${props.itemimage}) `};
+  }
   ${PortfolioItem}:hover & {
     opacity: 1;
   }
@@ -72,6 +101,7 @@ const PortfolioItemNameLinkText = styled.h2`
 `
 
 const PortfolioImage = styled.img`
+  display: none;
   max-width: 300px;
   position: absolute;
   top: 50%;
@@ -80,11 +110,31 @@ const PortfolioImage = styled.img`
   z-index: -5;
   opacity: 1;
 `
+const Logo = styled.img`
+  max-width: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -5;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.25s linear;
+`
+// --------------
+//   Styles end
+// --------------
 
-const PortfolioItemsText = () => {
-  function handleHover(e) {
+const PortfolioItemsTextHorizontal = () => {
+  const [logoStyle, setLogoStyle] = useState({})
+
+  function changeStyle(e) {
     e.preventDefault()
-    console.log("function works!")
+    setLogoStyle({ visibility: "hidden", opacity: "0" })
+  }
+  function resetStyle(e) {
+    e.preventDefault()
+    setLogoStyle({ visibility: "visible", opacity: "1" })
   }
 
   return (
@@ -105,10 +155,22 @@ const PortfolioItemsText = () => {
               }
             }
           }
+          wordpressWpMedia(title: { in: "logo-05-svg" }) {
+            source_url
+            title
+            id
+          }
         }
       `}
       render={props => (
         <Wrapper>
+          <Logo
+            style={logoStyle}
+            key={props.wordpressWpMedia.id}
+            src={`${props.wordpressWpMedia.source_url}`}
+            alt="Logo"
+          />
+          {console.log(props.wordpressWpMedia.source_url)}
           <PortfolioImageWrapper>
             {props.allWordpressWpPortfolio.edges.map(edge => (
               <PortfolioImage
@@ -120,29 +182,20 @@ const PortfolioItemsText = () => {
           </PortfolioImageWrapper>
 
           <PortfolioItemsWrapper>
-            <PortfolioItems>
-              {props.allWordpressWpPortfolio.edges.map(
-                (portfolioItem, index) => (
-                  <PortfolioItem key={portfolioItem.node.id}>
-                    <PortfolioItemNameLink
-                      to={`/portfolio/${portfolioItem.node.slug}`}
-                    >
-                      {/* <PortfolioImage
-                    style={currentTop}
-                    src={portfolioItem.node.featured_media.source_url}
-                    alt="Thumbnail"
-                  /> */}
-                      <div onMouseOver={e => handleHover(e, index)}>
-                        {console.log(index)}
-                        <PortfolioItemNameLinkText>
-                          {portfolioItem.node.title}
-                        </PortfolioItemNameLinkText>
-                      </div>
-                    </PortfolioItemNameLink>
-                  </PortfolioItem>
-                )
-              )}
-            </PortfolioItems>
+            {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
+              <PortfolioItem key={portfolioItem.node.id}>
+                <PortfolioItemNameLink
+                  to={`/portfolio/${portfolioItem.node.slug}`}
+                  itemimage={`${portfolioItem.node.featured_media.source_url}`}
+                  onMouseOver={changeStyle}
+                  onMouseLeave={resetStyle}
+                >
+                  <PortfolioItemNameLinkText>
+                    {portfolioItem.node.title}
+                  </PortfolioItemNameLinkText>
+                </PortfolioItemNameLink>
+              </PortfolioItem>
+            ))}
           </PortfolioItemsWrapper>
         </Wrapper>
       )}
@@ -150,4 +203,4 @@ const PortfolioItemsText = () => {
   )
 }
 
-export default PortfolioItemsText
+export default PortfolioItemsTextHorizontal
