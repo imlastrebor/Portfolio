@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div``
 
-const PortfolioImageWrapper = styled.div``
+// const PortfolioImageWrapper = styled.div``
 
 const PortfolioItemsWrapper = styled.div`
   position: fixed;
@@ -71,7 +71,6 @@ const PortfolioItemNameLink = styled(Link)`
   }
   &:after {
     content: "";
-
     background-image: ${props => `url(${props.itemimage}) `};
     background-size: 100%;
     width: 300px;
@@ -87,11 +86,7 @@ const PortfolioItemNameLink = styled(Link)`
   }
   &:hover&:after {
     opacity: 0.7;
-    visibility: visible;
-    background-image: ${props => `url(${props.itemimage}) `};
-  }
-  ${PortfolioItem}:hover & {
-    opacity: 1;
+    visibility: hidden;
   }
 `
 const PortfolioItemNameLinkText = styled.h2`
@@ -100,15 +95,24 @@ const PortfolioItemNameLinkText = styled.h2`
   font-size: 4em;
 `
 
-const PortfolioImage = styled.img`
-  display: none;
+// const PortfolioImage = styled.img`
+//   max-width: 300px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: -5;
+//   opacity: 1;
+//   display: none;
+// `
+const PortfolioItemImage = styled.img`
   max-width: 300px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -5;
-  opacity: 1;
+  opacity: 0;
 `
 const Logo = styled.img`
   max-width: 150px;
@@ -127,14 +131,17 @@ const Logo = styled.img`
 
 const PortfolioItemsTextHorizontal = () => {
   const [logoStyle, setLogoStyle] = useState({})
+  const [imageStyle, setImageStyle] = useState({})
 
   function changeStyle(e) {
     e.preventDefault()
     setLogoStyle({ visibility: "hidden", opacity: "0" })
+    setImageStyle({ visibility: "visible", opacity: "1" })
   }
   function resetStyle(e) {
     e.preventDefault()
     setLogoStyle({ visibility: "visible", opacity: "1" })
+    setImageStyle({ visibility: "hidden", opacity: "0" })
   }
 
   return (
@@ -170,24 +177,31 @@ const PortfolioItemsTextHorizontal = () => {
             src={`${props.wordpressWpMedia.source_url}`}
             alt="Logo"
           />
-          {console.log(props.wordpressWpMedia.source_url)}
+          {/* {console.log(props.wordpressWpMedia.source_url)}
           <PortfolioImageWrapper>
             {props.allWordpressWpPortfolio.edges.map(edge => (
               <PortfolioImage
+                style={imageStyle}
                 key={edge.node.id}
                 src={edge.node.featured_media.source_url}
                 alt="Thumbnail"
               />
             ))}
-          </PortfolioImageWrapper>
+          </PortfolioImageWrapper> */}
 
           <PortfolioItemsWrapper>
             {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
               <PortfolioItem key={portfolioItem.node.id}>
+                <PortfolioItemImage
+                  style={imageStyle}
+                  id={portfolioItem.node.id}
+                  src={portfolioItem.node.featured_media.source_url}
+                  alt="PortfolioItemImage"
+                />
                 <PortfolioItemNameLink
                   to={`/portfolio/${portfolioItem.node.slug}`}
                   itemimage={`${portfolioItem.node.featured_media.source_url}`}
-                  onMouseOver={changeStyle}
+                  onMouseEnter={changeStyle}
                   onMouseLeave={resetStyle}
                 >
                   <PortfolioItemNameLinkText>

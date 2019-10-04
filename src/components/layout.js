@@ -12,7 +12,7 @@ import styled, { createGlobalStyle, keyframes } from "styled-components"
 
 // bg animation
 const movement = keyframes`
-  0%, 100% { transform:translate(0, 0) }
+  /* 0%, 100% { transform:translate(0, 0) }
   10% { transform:translate(-5%, -10%) }
   20% { transform:translate(-15%, 5%) }
   30% { transform:translate(7%, -25%) }
@@ -21,7 +21,7 @@ const movement = keyframes`
   60% { transform:translate(15%, 0%) }
   70% { transform:translate(0%, 15%) }
   80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
+  90% { transform:translate(-10%, 10%) } */
 `
 
 const GlobalStyles = createGlobalStyle`
@@ -43,7 +43,7 @@ body{
     content: "";
     height: 300%;
     left: -50%;
-    opacity: .05;
+    opacity: .1;
     position: fixed;
     top: -100%;
     width: 300%;

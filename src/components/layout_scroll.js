@@ -39,7 +39,7 @@ body{
     content: "";
     height: 300%;
     left: -50%;
-    opacity: .05;
+    opacity: .1;
     position: fixed;
     top: -100%;
     width: 300%;
