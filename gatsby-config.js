@@ -40,8 +40,8 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        // baseUrl: "localhost:8888/robertsalmi.fi",
-        baseUrl: "http://digipalvelin.metropolia.fi/~robertms/portfolio",
+        baseUrl: "localhost:8888/robertsalmi.fi",
+        // baseUrl: "digipalvelin.metropolia.fi/~robertms/portfolio",
         // The protocol. This can be http or https.
         protocol: "http",
         // Indicates whether the site is hosted on wordpress.com.
