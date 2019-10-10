@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.div``
 
-// const PortfolioImageWrapper = styled.div``
+const PortfolioImageWrapper = styled.div``
 
 const PortfolioItemsWrapper = styled.div`
   position: fixed;
@@ -88,23 +88,28 @@ const PortfolioItemNameLink = styled(Link)`
     opacity: 0.7;
     visibility: hidden;
   }
+  @media only screen and (max-width: 624px) {
+    &:hover {
+      color: transparent;
+    }
+  }
 `
 const PortfolioItemNameLinkText = styled.h2`
+  font-family: "Archivo", sans-serif;
   display: inline-block;
   margin: 0;
   font-size: 4em;
 `
 
-// const PortfolioImage = styled.img`
-//   max-width: 300px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   z-index: -5;
-//   opacity: 1;
-//   display: none;
-// `
+const PortfolioImage = styled.img`
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -5;
+  opacity: 0;
+`
 const PortfolioItemImage = styled.img`
   max-width: 300px;
   position: fixed;
@@ -177,8 +182,7 @@ const PortfolioItemsTextHorizontal = () => {
             src={`${props.wordpressWpMedia.source_url}`}
             alt="Logo"
           />
-          {/* {console.log(props.wordpressWpMedia.source_url)}
-          <PortfolioImageWrapper>
+          {/* <PortfolioImageWrapper>
             {props.allWordpressWpPortfolio.edges.map(edge => (
               <PortfolioImage
                 style={imageStyle}

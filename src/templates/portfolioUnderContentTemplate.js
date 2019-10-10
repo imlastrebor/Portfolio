@@ -16,6 +16,7 @@ const AboutInner = styled.div`
 `
 const AboutTitle = styled.div`
   color: #fff;
+  font-size: 2em;
 `
 const AboutContent = styled.div`
   color: #fff;

@@ -23,9 +23,13 @@ const movement = keyframes`
   90% { transform:translate(-10%, 10%) }
 `
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=B612:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo:600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli:700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap');
 body, html{
-  font-family: 'Roboto Mono', monospace;
+  font-family: "B612", sans-serif;
   margin: 0 !important;
   padding: 0 !important;
   /* overflow:hidden; */

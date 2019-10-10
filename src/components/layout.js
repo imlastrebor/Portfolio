@@ -12,7 +12,7 @@ import styled, { createGlobalStyle, keyframes } from "styled-components"
 
 // bg animation
 const movement = keyframes`
-  /* 0%, 100% { transform:translate(0, 0) }
+  0%, 100% { transform:translate(0, 0) }
   10% { transform:translate(-5%, -10%) }
   20% { transform:translate(-15%, 5%) }
   30% { transform:translate(7%, -25%) }
@@ -21,14 +21,17 @@ const movement = keyframes`
   60% { transform:translate(15%, 0%) }
   70% { transform:translate(0%, 15%) }
   80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) } */
+  90% { transform:translate(-10%, 10%) }
 `
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=B612:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo:600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli:700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap');
 body, html{
-  font-family: 'Roboto Mono', monospace;
+  font-family: "B612", sans-serif;
   margin: 0 !important;
   padding: 0 !important;
   height:100%;

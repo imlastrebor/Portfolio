@@ -9,6 +9,7 @@ import ItemCarousel from "../components/ItemsCarousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import PortfolioItemsText from "../components/PortfolioItemsText"
 import PortfolioItemsTextHorizontal from "../components/PortfolioItemsTextHorizontal"
+import PortfolioItemsTextHorizontal2 from "../components/PortfolioItemsTextHorizontal2"
 
 export default ({ pageContext }) => (
   <Layout>
@@ -16,7 +17,8 @@ export default ({ pageContext }) => (
     <div dangerouslySetInnerHTML={{ __html: pageContext.content }} /> */}
     {/* <PortfolioItems /> */}
     {/* <PortfolioItemsText /> */}
-    <PortfolioItemsTextHorizontal />
+    {/* <PortfolioItemsTextHorizontal /> */}
+    <PortfolioItemsTextHorizontal2 />
     {/* <ItemCarousel /> */}
     {/* <DemoCarousel /> */}
   </Layout>
