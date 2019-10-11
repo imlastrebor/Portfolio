@@ -112,7 +112,7 @@ const PortfolioItemsTextHorizontal2 = () => {
                 image={portfolioItem.node.featured_media.source_url}
                 id={portfolioItem.node.id}
                 title={portfolioItem.node.title}
-                link={`/portfolio/${portfolioItem.node.slug}`}
+                link={`/works/${portfolioItem.node.slug}`}
               />
             ))}
           </PortfolioItemsWrapper>
