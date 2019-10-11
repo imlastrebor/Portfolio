@@ -83,8 +83,6 @@ export default ({ children }) => {
       }
     `
   )
-  const testi = data.wordpressWpMedia.source_url
-  console.log(testi)
   return (
     <div>
       <GlobalStyles imgUrl={data.wordpressWpMedia.source_url} />

@@ -154,31 +154,7 @@ exports.createPages = ({ graphql, actions }) => {
             reject(result.errors)
           }
 
-          //   {
-          //     console.log("-------------------------------")
-          //   }
-          //   {
-          //     console.log(
-          //       result.data.allWordpressWpPortfolio.edges.map(edge =>
-          //         edge.node.acf.portfolio_falley.map(
-          //           galleryItem => galleryItem.localFile.childImageSharp.fluid.src
-          //         )
-          //       )
-          //     )
-          //   }
-          //   {
-          //     console.log("-------------------------------")
-          //   }
-
           const portfolioTemplate = path.resolve("./src/templates/portfolio.js")
-
-          // createPaginatedPages({
-          //   edges: result.data.allWordpressWpPortfolio.edges,
-          //   createPage: createPage,
-          //   pageTemplate: './src/templates/portfolios.js',
-          //   pageLength: 3,
-          //   pathPrefix: 'portfolio'
-          // })
 
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.

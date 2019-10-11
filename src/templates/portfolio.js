@@ -39,10 +39,6 @@ const GalleryImg = styled.img`
 `
 export default ({ pageContext, data }) => (
   <Layout>
-    {console.log("------------------")}
-    {console.log(pageContext)}
-    {console.log("------------------")}
-
     <PortfolioWrapper>
       <PortfolioInner>
         <h1>{pageContext.title}</h1>
