@@ -37,7 +37,7 @@ export default ({ pageContext }) => (
         />
       </AboutInner>
       <span>
-        <a href="https:/linkedin.com/in/robertsalmi">
+        <a href="https://linkedin.com/in/robertsalmi">
           <Icon viewBox="0 50 512 512">
             <path
               xmlns="http://www.w3.org/2000/svg"
