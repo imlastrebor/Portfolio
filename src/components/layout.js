@@ -36,7 +36,7 @@ body, html{
   padding: 0 !important;
   height:100%;
   overflow:hidden !important;
-  
+  -webkit-overflow-scrolling: touch;
 }
 body{
   background-color:#000709;

@@ -14,6 +14,11 @@ const PortfolioInner = styled.div`
   margin: auto;
   padding-bottom: 50px;
 `
+
+const WorkTitle = styled.h1`
+  color: #fff;
+`
+
 const FeaturedImage = styled.img`
   max-width: 300px;
   margin: 16px 0;
@@ -41,7 +46,7 @@ export default ({ pageContext, data }) => (
   <Layout>
     <PortfolioWrapper>
       <PortfolioInner>
-        <h1>{pageContext.title}</h1>
+        <WorkTitle>{pageContext.title}</WorkTitle>
         <FeaturedImage src={pageContext.featured_media.source_url} />
         <PortfolioText
           dangerouslySetInnerHTML={{ __html: pageContext.content }}
