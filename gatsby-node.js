@@ -95,6 +95,7 @@ exports.createPages = ({ graphql, actions }) => {
                 acf {
                   portfolio_gallery {
                     id
+                    source_url
                     localFile {
                       childImageSharp {
                         fixed(width: 400, height: 400) {
@@ -134,6 +135,7 @@ exports.createPages = ({ graphql, actions }) => {
                         title
                         id
                         caption
+                        source_url
                         localFile {
                           childImageSharp {
                             fixed(width: 400, height: 400) {

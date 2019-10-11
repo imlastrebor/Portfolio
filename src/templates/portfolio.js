@@ -52,8 +52,10 @@ export default ({ pageContext, data }) => (
             <GalleryTitle
               dangerouslySetInnerHTML={{ __html: galleryItem.title }}
             />
+            {console.log(galleryItem.source_url)}
             <GalleryImg
-              src={galleryItem.localFile.childImageSharp.fixed.src}
+              src={galleryItem.source_url}
+              // src={galleryItem.localFile.childImageSharp.fixed.src}
               alt={galleryItem.caption}
             />
             <GalleryCaption
@@ -109,6 +111,7 @@ export const portfolioQuery = graphql`
             portfolio_gallery {
               title
               id
+              source_url
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 300) {
