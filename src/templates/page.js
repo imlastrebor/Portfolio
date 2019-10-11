@@ -3,7 +3,6 @@ import React from "react"
 // "../components/layout" Scroll off
 // "../components/layout_scroll" Scroll on
 import Layout from "../components/layout"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import PortfolioItemsTextHorizontal2 from "../components/PortfolioItemsTextHorizontal2"
 
 export default ({ pageContext }) => (
