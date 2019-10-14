@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout_scroll"
 import styled from "styled-components"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const PortfolioWrapper = styled.div`
   max-width: 90%;
@@ -29,6 +30,11 @@ const PortfolioText = styled.div`
   color: #fff;
 `
 
+const GalleryItem = styled.div`
+  max-width: 300px;
+  margin: auto;
+`
+
 const GalleryTitle = styled.div`
   color: #fff;
   text-align: center;
@@ -53,21 +59,50 @@ export default ({ pageContext, data }) => (
         />
 
         {pageContext.acf.portfolio_gallery.map(galleryItem => (
-          <div key={galleryItem.id}>
+          <GalleryItem key={galleryItem.id}>
             <GalleryTitle
               dangerouslySetInnerHTML={{ __html: galleryItem.title }}
             />
-            {console.log(galleryItem.source_url)}
             <GalleryImg
               src={galleryItem.source_url}
               // src={galleryItem.localFile.childImageSharp.fixed.src}
               alt={galleryItem.caption}
             />
+            <GalleryCaption>PERKELE</GalleryCaption>
+            {/* <img src={galleryItem.localFile.childImageSharp.fluid.src} /> */}
+            <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
+            {console.log(galleryItem.localFile.childImageSharp.fluid)}
             <GalleryCaption
               dangerouslySetInnerHTML={{ __html: galleryItem.caption }}
             />
-          </div>
+          </GalleryItem>
         ))}
+
+        {/* IMAGE SHOW TEST */}
+        <div>
+          {/* {console.log(
+            data.allWordpressWpPortfolio.edges.map(portfolioWork =>
+              portfolioWork.node.acf.portfolio_gallery.map(
+                galleryWork => galleryWork.localFile.childImageSharp.fluid.src
+              )
+            )
+          )} */}
+          {/* {data.allWordpressWpPortfolio.edges.map(portfolioWork =>
+            portfolioWork.node.acf.portfolio_gallery.map(galleryWork => (
+              <Img fluid={galleryWork.localFile.childImageSharp.fluid} />
+            ))
+          )} */}
+
+          {/* {console.log(
+            data.wordpressWpPortfolio.acf.portfolio_gallery.map(
+              galleryWork => galleryWork.localFile.childImageSharp.fixed
+            )
+          )} */}
+          {/* {data.wordpressWpPortfolio.acf.portfolio_gallery.map(galleryWork => (
+            <Img fixed={galleryWork.localFile.childImageSharp.fixed} />
+          ))} */}
+        </div>
+        {/* --------------- */}
       </PortfolioInner>
     </PortfolioWrapper>
   </Layout>

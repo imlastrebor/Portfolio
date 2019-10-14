@@ -141,8 +141,12 @@ exports.createPages = ({ graphql, actions }) => {
                         source_url
                         localFile {
                           childImageSharp {
-                            fixed(width: 400, height: 400) {
+                            fluid(maxWidth: 500, quality: 50) {
                               src
+                              srcSet
+                              aspectRatio
+                              sizes
+                              base64
                             }
                           }
                         }
