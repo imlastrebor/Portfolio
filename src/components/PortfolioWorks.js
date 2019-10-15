@@ -31,7 +31,6 @@ const PortfolioImage = styled(Img)`
   }
 `
 const PortfolioItemNameLink = styled(Link)`
-  /* font-family: "Muli", sans-serif; */
   font-family: "Archivo";
   font-size: 4em;
   display: inline-block;

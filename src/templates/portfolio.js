@@ -25,12 +25,6 @@ const WorkImage = styled.div`
   margin: auto;
 `
 
-// const FeaturedImage = styled.img`
-//   max-width: 300px;
-//   margin: 16px 0;
-//   margin: auto;
-//   display: block;
-// `
 const PortfolioText = styled.div`
   color: #fff;
 `
@@ -50,11 +44,7 @@ const GalleryCaption = styled.div`
   color: #fff;
   text-align: center;
 `
-// const GalleryImg = styled.img`
-//   max-width: 300px;
-//   margin: auto;
-//   display: block;
-// `
+
 export default ({ pageContext, data }) => (
   <Layout>
     <PortfolioWrapper>
@@ -74,12 +64,6 @@ export default ({ pageContext, data }) => (
             <GalleryTitle
               dangerouslySetInnerHTML={{ __html: galleryItem.title }}
             />
-            {/* <GalleryImg
-              src={galleryItem.source_url}
-              // src={galleryItem.localFile.childImageSharp.fixed.src}
-              alt={galleryItem.caption}
-            /> */}
-            {/* <img src={galleryItem.localFile.childImageSharp.fluid.src} /> */}
             <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
             {console.log(galleryItem.localFile.childImageSharp.fluid)}
             <GalleryCaption
@@ -87,32 +71,6 @@ export default ({ pageContext, data }) => (
             />
           </GalleryItem>
         ))}
-
-        {/* IMAGE SHOW TEST */}
-        <div>
-          {/* {console.log(
-            data.allWordpressWpPortfolio.edges.map(portfolioWork =>
-              portfolioWork.node.acf.portfolio_gallery.map(
-                galleryWork => galleryWork.localFile.childImageSharp.fluid.src
-              )
-            )
-          )} */}
-          {/* {data.allWordpressWpPortfolio.edges.map(portfolioWork =>
-            portfolioWork.node.acf.portfolio_gallery.map(galleryWork => (
-              <Img fluid={galleryWork.localFile.childImageSharp.fluid} />
-            ))
-          )} */}
-
-          {/* {console.log(
-            data.wordpressWpPortfolio.acf.portfolio_gallery.map(
-              galleryWork => galleryWork.localFile.childImageSharp.fixed
-            )
-          )} */}
-          {/* {data.wordpressWpPortfolio.acf.portfolio_gallery.map(galleryWork => (
-            <Img fixed={galleryWork.localFile.childImageSharp.fixed} />
-          ))} */}
-        </div>
-        {/* --------------- */}
       </PortfolioInner>
     </PortfolioWrapper>
   </Layout>

@@ -63,16 +63,6 @@ const LayoutWrapper = styled.div`
   height: 100%;
 `
 
-// const Layout = ({ children }) => (
-//   <div>
-//     <GlobalStyles />
-//     <MainMenu />
-//     <LayoutWrapper>{children}</LayoutWrapper>
-//   </div>
-// )
-
-// export default Layout
-
 export default ({ children }) => {
   const data = useStaticQuery(
     graphql`

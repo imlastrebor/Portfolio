@@ -10,12 +10,6 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   @media only screen and (max-width: 1024px) {
-    /* white-space: normal;
-    position: static;
-    max-height: 80vh;
-    max-width: 400px;
-    margin: auto;
-    margin-top: 50px; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

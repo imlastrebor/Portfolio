@@ -7,8 +7,6 @@ import PortfolioItemsTextHorizontal2 from "../components/PortfolioItemsTextHoriz
 
 export default ({ pageContext }) => (
   <Layout>
-    {/* <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
-    <div dangerouslySetInnerHTML={{ __html: pageContext.content }} /> */}
     <PortfolioItemsTextHorizontal2 />
   </Layout>
 )

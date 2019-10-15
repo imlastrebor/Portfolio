@@ -82,33 +82,9 @@ const LayoutWrapper = styled.div`
 `
 
 export default ({ children }) => {
-  // const data = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       wordpressWpMedia(title: { in: "grungeDark" }) {
-  //         source_url
-  //         title
-  //         localFile {
-  //           childImageSharp {
-  //             fixed(width: 150, height: 300) {
-  //               ...GatsbyImageSharpFixed
-  //             }
-  //             fluid(maxWidth: 200, quality: 100) {
-  //               ...GatsbyImageSharpFluid
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `
-  // )
   return (
     <div>
-      {/* <BgAnimation
-        fluid={data.wordpressWpMedia.localFile.childImageSharp.fluid}
-      /> */}
       <GlobalStyles />
-      {/* <GlobalStyles imgUrl={data.wordpressWpMedia.source_url} /> */}
       <MainMenu />
       <LayoutWrapper>{children}</LayoutWrapper>
     </div>
