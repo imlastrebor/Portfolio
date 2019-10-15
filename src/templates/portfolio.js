@@ -65,7 +65,6 @@ export default ({ pageContext, data }) => (
               dangerouslySetInnerHTML={{ __html: galleryItem.title }}
             />
             <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
-            {console.log(galleryItem.localFile.childImageSharp.fluid)}
             <GalleryCaption
               dangerouslySetInnerHTML={{ __html: galleryItem.caption }}
             />
