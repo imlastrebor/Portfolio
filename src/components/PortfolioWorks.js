@@ -18,6 +18,7 @@ const ImageWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -10;
 `
 
 const PortfolioImage = styled(Img)`
@@ -34,7 +35,7 @@ const PortfolioItemNameLink = styled(Link)`
   font-family: "Archivo";
   font-size: 4em;
   display: inline-block;
-  z-index: 1;
+  z-index: 100;
   text-decoration: none;
   color: transparent;
   -webkit-text-stroke-width: 1px;

@@ -65,19 +65,23 @@ const LogoWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -111;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 50px;
+  }
 `
 
 const Logo = styled(Img)`
   margin: auto;
   max-width: 150px;
-  position: fixed;
-  z-index: -99;
+  position: relative;
+  z-index: -999;
   opacity: 0.5;
   visibility: visible;
   transition: 0.25s linear;
-  ${Wrapper}:hover & {
+  /* ${Wrapper}:hover & {
     opacity: 0;
-  }
+  } */
 `
 // --------------
 //   Styles end

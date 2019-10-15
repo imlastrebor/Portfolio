@@ -73,9 +73,12 @@ body{
 
 const LayoutWrapper = styled.div`
   margin: 0 auto;
-  padding: 0 10%;
+  padding: 0 20%;
   padding-top: 100px;
   height: 100%;
+  @media only screen and (max-width: 624px) {
+    padding: 80px 10px 0 10px;
+  }
 `
 
 export default ({ children }) => {
