@@ -19,19 +19,27 @@ const PortfolioInner = styled.div`
 const WorkTitle = styled.h1`
   color: #fff;
 `
-
-const FeaturedImage = styled.img`
-  max-width: 300px;
-  margin: 16px 0;
+const WorkImage = styled.div`
+  min-width: 200px;
+  max-width: 500px;
+  width: 50%;
   margin: auto;
-  display: block;
 `
+
+// const FeaturedImage = styled.img`
+//   max-width: 300px;
+//   margin: 16px 0;
+//   margin: auto;
+//   display: block;
+// `
 const PortfolioText = styled.div`
   color: #fff;
 `
 
 const GalleryItem = styled.div`
+  min-width: 150px;
   max-width: 300px;
+  width: 50%;
   margin: auto;
 `
 
@@ -43,17 +51,21 @@ const GalleryCaption = styled.div`
   color: #fff;
   text-align: center;
 `
-const GalleryImg = styled.img`
-  max-width: 300px;
-  margin: auto;
-  display: block;
-`
+// const GalleryImg = styled.img`
+//   max-width: 300px;
+//   margin: auto;
+//   display: block;
+// `
 export default ({ pageContext, data }) => (
   <Layout>
     <PortfolioWrapper>
       <PortfolioInner>
         <WorkTitle>{pageContext.title}</WorkTitle>
-        <FeaturedImage src={pageContext.featured_media.source_url} />
+        <WorkImage>
+          <Img
+            fluid={pageContext.featured_media.localFile.childImageSharp.fluid}
+          />
+        </WorkImage>
         <PortfolioText
           dangerouslySetInnerHTML={{ __html: pageContext.content }}
         />
@@ -63,12 +75,11 @@ export default ({ pageContext, data }) => (
             <GalleryTitle
               dangerouslySetInnerHTML={{ __html: galleryItem.title }}
             />
-            <GalleryImg
+            {/* <GalleryImg
               src={galleryItem.source_url}
               // src={galleryItem.localFile.childImageSharp.fixed.src}
               alt={galleryItem.caption}
-            />
-            <GalleryCaption>PERKELE</GalleryCaption>
+            /> */}
             {/* <img src={galleryItem.localFile.childImageSharp.fluid.src} /> */}
             <Img fluid={galleryItem.localFile.childImageSharp.fluid} />
             {console.log(galleryItem.localFile.childImageSharp.fluid)}

@@ -119,6 +119,17 @@ exports.createPages = ({ graphql, actions }) => {
                     content
                     featured_media {
                       source_url
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 500, quality: 100) {
+                            src
+                            srcSet
+                            aspectRatio
+                            sizes
+                            base64
+                          }
+                        }
+                      }
                     }
                     acf {
                       portfolio_item {
@@ -141,7 +152,7 @@ exports.createPages = ({ graphql, actions }) => {
                         source_url
                         localFile {
                           childImageSharp {
-                            fluid(maxWidth: 500, quality: 50) {
+                            fluid(maxWidth: 300, quality: 50) {
                               src
                               srcSet
                               aspectRatio
