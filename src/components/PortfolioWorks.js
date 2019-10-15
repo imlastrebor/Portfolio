@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -19,7 +20,7 @@ const ImageWrapper = styled.div`
   transform: translate(-50%, -50%);
 `
 
-const PortfolioImage = styled.img`
+const PortfolioImage = styled(Img)`
   max-width: 300px;
   z-index: -99;
   opacity: 0;
@@ -68,7 +69,7 @@ const PortfolioWorks = ({ image, title, link, id }) => {
   return (
     <Wrapper key={id}>
       <ImageWrapper>
-        <PortfolioImage style={imageStyle} src={image} />
+        <PortfolioImage style={imageStyle} fixed={image} />
       </ImageWrapper>
       <PortfolioItemNameLink
         to={link}

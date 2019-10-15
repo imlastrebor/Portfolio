@@ -9,7 +9,6 @@ const PortfolioWrapper = styled.div`
   max-height: 90vh;
   margin: auto;
   margin-top: -20px;
-  overflow-y: scroll;
 `
 const PortfolioInner = styled.div`
   margin: auto;
